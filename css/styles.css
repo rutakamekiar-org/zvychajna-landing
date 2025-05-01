@@ -1,68 +1,91 @@
-/* css/styles.css */
-
-/* 1. Скидання стилів */
+/* 1. Скидання */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
   
-  /* 2. Коренева типографіка */
+  /* 2. Палітра та базове */
   :root {
-    --color-bg: #f3e5c0;        /* світлий бежевий фон */
-    --color-text: #333333;      /* темно-сірий текст */
-    --color-accent: #e18d00;    /* теплий помаранчевий акцент */
-    --color-secondary: #3b5f41; /* темно-зелений */
+    --tan-color: #E0CEA8;
+    --color-accent: #e18d00;    /* помаранчевий */
+    --color-dark: #3b5f41;      /* темний зелений */
     --font-base: Arial, sans-serif;
+    /* картка */
+    --card-bg: var(--tan-color);
+    --card-radius: 8px;
+    --card-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    --overlay-bg: rgba(59,95,65, 0.7);
   }
   
   body {
     font-family: var(--font-base);
-    color: var(--color-text);
-    background-color: var(--color-bg);
+    color: #333;
     line-height: 1.6;
+    background-color: #faf7f1;
   }
   
-  /* 3. Контейнер для центрованого контенту */
-  section {
-    max-width: 800px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-  }
-  
-  /* 4. Хедер */
-  .site-header {
+  /* 3. Hero (залишаємо як є) */
+  .hero {
+    position: relative;
+    height: 100vh;
+    background: url('../images/cover.jpg') center/cover fixed no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    padding: 2rem 1rem;
-    background-color: var(--color-secondary);
-    color: white;
   }
-  .site-header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+  .hero .overlay {
+    position: absolute;
+    inset: 0;
+    background-color: var(--overlay-bg);
   }
-  .site-header .subtitle {
-    font-size: 1.25rem;
-    opacity: 0.9;
-  }
-  
-  /* 5. Герой-блок */
-  .hero img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  .hero-content {
+    position: relative;
+    color: var(--tan-color);
+    padding: 0 1rem;
+    max-width: 800px;
   }
   
-  /* 6. Заголовки секцій */
+  /* 4. Усі інші секції: фон-обкладинка + оверлей */
+  section.description,
+  section.excerpt,
+  section.preorder {
+    position: relative;
+    background: url('../images/cover.jpg') center/cover fixed no-repeat;
+    padding: 1rem 0;  /* вертикальні відступи */
+    overflow: hidden;
+  }
+  section.description::before,
+  section.excerpt::before,
+  section.preorder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--overlay-bg);
+  }
+  
+  /* 5. Плаваюча картка */
+  section .container {
+    position: relative;     /* над оверлеєм */
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    background-color: var(--card-bg);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+  }
+  
+  /* 6. Заголовки та текст */
   h2 {
-    font-size: 1.75rem;
-    color: var(--color-secondary);
     margin-bottom: 1rem;
+    font-size: 2rem;
+    color: var(--color-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
   
-  /* 7. Блок цитати */
+  /* 7. Цитата */
   .excerpt blockquote {
     font-style: italic;
     padding-left: 1rem;
@@ -70,25 +93,76 @@
     color: #555;
   }
   
-  /* 8. Кнопка / посилання на форму */
+  /* 8. Кнопки */
   .btn {
     display: inline-block;
     background-color: var(--color-accent);
-    color: white;
+    color: #fff;
     text-decoration: none;
     padding: 0.75rem 1.5rem;
     border-radius: 4px;
-    transition: background-color 0.3s;
+    transition: transform 0.2s, background-color 0.3s;
+    position: relative;
+    z-index: 1; /* над карткою */
   }
   .btn:hover {
+    transform: translateY(-2px);
     background-color: #c97400;
   }
   
-  /* 9. Футер */
+  /* 9. Футер як секція */
   .site-footer {
+    position: relative;
+    background: url('../images/cover.jpg') center/cover fixed no-repeat;
+  }
+  .site-footer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: var(--overlay-bg-light);
+  }
+  .site-footer .container {
+    position: relative;
     text-align: center;
-    padding: 1.5rem 1rem;
-    font-size: 0.875rem;
     color: #666;
+    background-color: var(--card-bg);
+    border-radius: var(--card-radius);
+    box-shadow: var(--card-shadow);
+    padding: 1.5rem;
+  }
+  
+  /* Додаємо в кінець css/styles.css */
+
+/* 1. Збільшуємо розмір і жирність заголовка */
+.hero-content h1 {
+    font-size: 5rem;               /* раніше було 4rem */
+    font-weight: 900;              /* робимо дуже жирним */
+    letter-spacing: 0.15em;        /* трохи більше простору між літерами */
+    text-transform: uppercase;     /* усе великими — виглядає драматичніше */
+    text-shadow:
+      3px 3px 6px rgba(0,0,0,0.6), /* сильніша тінь для глибини */
+      -2px -2px 4px rgba(255,255,255,0.2); /* легкий білий контур для контрасту */
+    margin-bottom: 0.75rem;        /* більше простору до кнопки */
+  }
+  
+  /* 2. Підзаголовок — робимо яснішим */
+  .hero-content .subtitle {
+    font-size: 2rem;               /* раніше 1.5rem */
+    font-weight: 500;              /* напівжирний */
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+    color: #f3e5c0;                /* бежевий з палітри, щоб вирізнявся на темно-зеленому */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  }
+  
+  /* 3. Кнопка — додаємо легку анімацію входу */
+  .hero-content .btn {
+    animation: pop-in 0.6s ease-out both;
+  }
+  
+  @keyframes pop-in {
+    0%   { transform: scale(0.7) translateY(20px); opacity: 0; }
+    80%  { transform: scale(1.05) translateY(-5px); opacity: 1; }
+    100% { transform: scale(1) translateY(0); }
   }
   
