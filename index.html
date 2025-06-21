@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="robots" content="index, follow">
-    <meta name="description" content="Купити книгу «Звичайна» Лілії Кухарець">
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="Купити книгу «Звичайна» Лілії Кухарець" />
     <title>Звичайна — книга Лілії Кухарець</title>
     <link
       rel="icon"
@@ -20,6 +20,10 @@
       href="images/icons/apple-touch-icon.png"
     />
     <link rel="manifest" href="images/icons/site.webmanifest" />
+    <script
+      src="https://kit.fontawesome.com/dcb994b94b.js"
+      crossorigin="anonymous"
+    ></script>
     <style>
       :root {
         --bg-start-color: #c4d6b0;
@@ -166,7 +170,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 40px;
       }
       .excerpt_content {
         max-width: 600px;
@@ -207,32 +210,73 @@
           font-size: 0.9rem;
         }
       }
+      .social-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+      .social-links a {
+        font-size: 1.6rem;
+        color: var(--author-name-color);
+        transition: color 0.2s;
+      }
+      .social-links a:hover,
+      .social-links a:focus {
+        color: var(--bg-start-color);
+        outline: none;
+      }
+      .social-links a:focus {
+        outline: 2px dashed var(--bg-start-color);
+        outline-offset: 4px;
+      }
+      #feedback {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
     </style>
-    <link rel="canonical" href="https://zvychajna.pp.ua/">
+    <link rel="canonical" href="https://zvychajna.pp.ua/" />
     <!-- Open Graph -->
     <meta property="og:type" content="book" />
     <meta property="og:title" content="Звичайна — книга Лілії Кухарець" />
-    <meta property="og:description" content="Купити книгу «Звичайна» Лілії Кухарець" />
+    <meta
+      property="og:description"
+      content="Купити книгу «Звичайна» Лілії Кухарець"
+    />
     <meta property="og:url" content="https://zvychajna.pp.ua/" />
-    <meta property="og:image" content="https://zvychajna.pp.ua/images/book.jpg" />
+    <meta
+      property="og:image"
+      content="https://zvychajna.pp.ua/images/book.jpg"
+    />
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Звичайна — книга Лілії Кухарець" />
-    <meta name="twitter:description" content="Купити книгу «Звичайна» Лілії Кухарець" />
-    <meta name="twitter:image" content="https://zvychajna.pp.ua/images/book.jpg" />
+    <meta
+      name="twitter:description"
+      content="Купити книгу «Звичайна» Лілії Кухарець"
+    />
+    <meta
+      name="twitter:image"
+      content="https://zvychajna.pp.ua/images/book.jpg"
+    />
     <!-- Structured Data -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Book",
-      "name": "Звичайна",
-      "author": {
-        "@type": "Person",
-        "name": "Лілія Кухарець"
-      },
-      "datePublished": "2025-05-15",
-      "description": "Роман про романтичні пригоди в постапокаліптичному світі."
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "Book",
+        "name": "Звичайна",
+        "author": {
+          "@type": "Person",
+          "name": "Лілія Кухарець"
+        },
+        "datePublished": "2025-05-15",
+        "description": "Роман про романтичні пригоди в постапокаліптичному світі."
+      }
     </script>
   </head>
   <body>
@@ -242,6 +286,7 @@
         <a href="#about">Анотація</a>
         <a href="#preorder">Передзамовлення</a>
         <a href="#excerpt">Уривок</a>
+        <a href="#feedback">Зворотній зв'язок</a>
       </nav>
     </header>
     <main>
@@ -250,7 +295,13 @@
           <h1 class="book_title">Звичайна</h1>
           <h2 class="author_name">Лілія Кухарець</h2>
         </div>
-        <img src="images/book.jpg" alt="Обкладинка книги «Звичайна» Лілії Кухарець" width="400" height="600" loading="lazy" />
+        <img
+          src="images/book.jpg"
+          alt="Обкладинка книги «Звичайна» Лілії Кухарець"
+          width="400"
+          height="600"
+          loading="lazy"
+        />
       </section>
       <section id="about" class="about_book">
         <h2>Анотація</h2>
@@ -407,6 +458,42 @@
           протягнула моя сусідка по кімнаті, — вони сказали, що я можу стати
           матір’ю!
         </div>
+      </section>
+      <section id="feedback">
+        <h2>Зворотній зв'язок</h2>
+        <ul class="social-links">
+          <li>
+            <a
+              href="https://www.instagram.com/time4ice"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+            >
+              <i class="fa fa-instagram"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.threads.com/@time4ice"
+              target="_blank"
+              rel="noopener"
+              aria-label="Threads"
+            >
+              <!-- немає офіційного FA-ікону для Threads, можна використати generic “T” або свій SVG -->
+              <i class="fa fa-brands fa-threads"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              href="mailto:lillykukharets0325@gmail.com"
+              target="_blank"
+              rel="noopener"
+              aria-label="Email"
+            >
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </li>
+        </ul>
       </section>
     </main>
     <footer>
