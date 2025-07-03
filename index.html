@@ -141,29 +141,6 @@
         gap: 10px;
         padding: 0 20px;
       }
-      .preorder_button {
-        padding: 0.75rem 1.5rem;
-        font-size: 1rem;
-        font-weight: bold;
-        font-family: "Segoe UI", sans-serif;
-        background-color: var(--title-color);
-        color: var(--author-name-color);
-        box-shadow: 4px 4px 0 var(--author-name-color);
-        border: none;
-        border-radius: 0.25rem;
-        transition: transform 0.1s ease-in-out;
-        cursor: pointer;
-        text-decoration: none;
-        line-height: 1.7em;
-      }
-      .preorder_button:hover {
-        transform: translateY(-2px);
-        box-shadow: 4px 4px 0 var(--author-name-color);
-      }
-      .preorder_button:active {
-        transform: translateY(1px);
-        box-shadow: 2px 2px 0 var(--author-name-color);
-      }
       /* Excerpt */
       .excerpt {
         padding: 40px 20px;
@@ -307,25 +284,25 @@
         <h2>Анотація</h2>
         <div class="about_book_content">
           Ніяких емоційних гойдалок і розбитого скла - тільки легка, як
-          цукерочка до чаю, історія. <br /><br /> Людство рятується від загадкових мутованих
-          тварин в організованих поселеннях. Лета - абсолютно звичайна дівчина,
-          така звичайна, що завалює всі тести на отримання бажаної професії.<br />
+          цукерочка до чаю, історія. <br /><br />
+          Людство рятується від загадкових мутованих тварин в організованих
+          поселеннях. Лета - абсолютно звичайна дівчина, така звичайна, що
+          завалює всі тести на отримання бажаної професії.<br />
           Здавалося б, тепер до скону гарувати на неулюбленій роботі - ач ні, і
           дівчина опиняється за межею поселення. Виживи або помри. Чи зустрінь
           хлопця, який уміє виживати і згодиться провести тебе додому. <br />Що
-          обереш, Лето - плисти за течією або проти?<br /><br /> Романтика, пригоди,
-          таємниці - у першій частині дилогії «Звичайна».
+          обереш, Лето - плисти за течією або проти?<br /><br />
+          Романтика, пригоди, таємниці - у першій частині дилогії «Звичайна».
         </div>
       </section>
       <section id="preorder" class="preorder">
         <img src="images/book.jpg" alt="Book" width="100" height="150" />
-        <a
-          target="_blank"
-          class="preorder_button"
-          href="https://docs.google.com/forms/d/e/1FAIpQLScegJtLFg-BegmtxXOOJBaEoHkbJatWy4S_NVsayl5N-vkGmA/viewform"
-        >
-          Передзамовлення
-        </a>
+        <img
+          src="images/monocheckout_button_black_normal.svg"
+          id="preorder_button"
+          alt="Передзамовити"
+          style="cursor: pointer"
+        />
       </section>
       <section id="excerpt" class="excerpt">
         <div class="excerpt_content">
@@ -518,5 +495,33 @@
     <footer>
       <p>© 2025 Лілія Кухарець. Усі права захищені.</p>
     </footer>
+    <script>
+      const API_URL = "https://bookpreorder.onrender.com/api/Checkout";
+      window.addEventListener("DOMContentLoaded", () => {
+        fetch(API_URL, { method: "GET" })
+      });
+      document
+        .getElementById("preorder_button")
+        .addEventListener("click", async () => {
+          try {
+            const response = await fetch(API_URL, {
+              method: "POST",
+            });
+
+            const data = await response.json();
+
+            if (data.redirectUrl) {
+              window.location.href = data.redirectUrl;
+            } else {
+              alert("Не вдалося отримати посилання на оплату.");
+            }
+          } catch (error) {
+            console.error("POST помилка:", error);
+            alert(
+              "Сервер зараз недоступний. Спробуйте ще раз за кілька хвилин."
+            );
+          }
+        });
+    </script>
   </body>
 </html>
