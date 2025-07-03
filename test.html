@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
+    <meta name="description" content="Купити книгу «Звичайна» Лілії Кухарець" />
+    <title>Звичайна — книга Лілії Кухарець</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="images/icons/favicon-96x96.png"
+      sizes="96x96"
+    />
+    <link rel="icon" type="image/svg+xml" href="images/icons/favicon.svg" />
+    <link rel="shortcut icon" href="images/icons/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="images/icons/apple-touch-icon.png"
+    />
+    <link rel="manifest" href="images/icons/site.webmanifest" />
+    <script
+      src="https://kit.fontawesome.com/dcb994b94b.js"
+      crossorigin="anonymous"
+    ></script>
+    <style>
+      :root {
+        --bg-start-color: #c4d6b0;
+        --title-color: #f09b30;
+        --author-name-color: #463422;
+      }
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        padding: 0;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        padding-top: 70px;
+        background-color: #fff;
+      }
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--bg-start-color);
+        height: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 20px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+      }
+      header nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      header nav a {
+        color: var(--author-name-color);
+        text-decoration: none;
+        font-weight: bold;
+        margin: 0 15px;
+        text-transform: uppercase;
+        font-size: 14px;
+      }
+      header nav a:hover {
+        text-decoration: underline;
+      }
+      main {
+        width: 100%;
+      }
+      /* offset for in-page anchors */
+      main > * {
+        scroll-margin-top: 80px;
+      }
+      /* make images responsive */
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      /* Preview section */
+      #preview {
+        width: 100%;
+        min-height: 300px;
+        background-color: var(--bg-start-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        padding: 20px;
+        gap: 20px;
+      }
+      .preview_text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .book_title {
+        color: var(--title-color);
+        text-transform: uppercase;
+        font-size: 3rem;
+        text-shadow: -4px 0px 4px #51573d;
+        margin: 10px 0;
+        font-weight: 100;
+      }
+      .author_name {
+        color: var(--author-name-color);
+        font-size: 1.2rem;
+      }
+      /* About Book */
+      .about_book {
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .about_book_content {
+        max-width: 650px;
+        font-size: 1rem;
+        line-height: 1.7em;
+      }
+      /* Preorder */
+      .preorder {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 40px;
+        gap: 10px;
+        padding: 0 20px;
+      }
+      .preorder_button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        font-weight: bold;
+        font-family: "Segoe UI", sans-serif;
+        background-color: var(--title-color);
+        color: var(--author-name-color);
+        box-shadow: 4px 4px 0 var(--author-name-color);
+        border: none;
+        border-radius: 0.25rem;
+        transition: transform 0.1s ease-in-out;
+        cursor: pointer;
+        text-decoration: none;
+        line-height: 1.7em;
+      }
+      .preorder_button:hover {
+        transform: translateY(-2px);
+        box-shadow: 4px 4px 0 var(--author-name-color);
+      }
+      .preorder_button:active {
+        transform: translateY(1px);
+        box-shadow: 2px 2px 0 var(--author-name-color);
+      }
+      /* Excerpt */
+      .excerpt {
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .excerpt_content {
+        max-width: 600px;
+        font-size: 1rem;
+        line-height: 1.7em;
+        text-align: left;
+        border: 4px solid var(--bg-start-color);
+        padding: 20px;
+      }
+      .excerpt_content h2 {
+        text-align: center;
+      }
+      footer {
+        text-align: center;
+        padding: 20px;
+      }
+      /* Mobile adjustments */
+      @media (max-width: 768px) {
+        header {
+          height: 60px;
+          padding: 0 10px;
+        }
+        body {
+          padding-top: 60px;
+        }
+        header nav a {
+          margin: 5px;
+          font-size: 12px;
+        }
+        .book_title {
+          font-size: 2rem;
+        }
+        .author_name {
+          font-size: 1rem;
+        }
+        .about_book_content,
+        .excerpt_content {
+          font-size: 0.9rem;
+        }
+      }
+      .social-links {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: center;
+      }
+      .social-links a {
+        font-size: 1.6rem;
+        color: var(--author-name-color);
+        transition: color 0.2s;
+      }
+      .social-links a:hover,
+      .social-links a:focus {
+        color: var(--bg-start-color);
+        outline: none;
+      }
+      .social-links a:focus {
+        outline: 2px dashed var(--bg-start-color);
+        outline-offset: 4px;
+      }
+      #feedback {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+    </style>
+    <link rel="canonical" href="https://zvychajna.pp.ua/" />
+    <!-- Open Graph -->
+    <meta property="og:type" content="book" />
+    <meta property="og:title" content="Звичайна — книга Лілії Кухарець" />
+    <meta
+      property="og:description"
+      content="Купити книгу «Звичайна» Лілії Кухарець"
+    />
+    <meta property="og:url" content="https://zvychajna.pp.ua/" />
+    <meta
+      property="og:image"
+      content="https://zvychajna.pp.ua/images/book.jpg"
+    />
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Звичайна — книга Лілії Кухарець" />
+    <meta
+      name="twitter:description"
+      content="Купити книгу «Звичайна» Лілії Кухарець"
+    />
+    <meta
+      name="twitter:image"
+      content="https://zvychajna.pp.ua/images/book.jpg"
+    />
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Book",
+        "name": "Звичайна",
+        "author": {
+          "@type": "Person",
+          "name": "Лілія Кухарець"
+        },
+        "datePublished": "2025-05-15",
+        "description": "Роман про романтичні пригоди в постапокаліптичному світі."
+      }
+    </script>
+    <script>
+      fetch('https://bookpreorder.onrender.com/api/Checkout', { method: 'GET' });
+    </script>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="#preview">Головна</a>
+        <a href="#about">Анотація</a>
+        <a href="#preorder">Передзамовлення</a>
+        <a href="#excerpt">Уривок</a>
+        <a href="#feedback">Зворотній зв'язок</a>
+      </nav>
+    </header>
+    <main>
+      <section id="preview">
+        <div class="preview_text">
+          <h1 class="book_title">Звичайна</h1>
+          <h2 class="author_name">Лілія Кухарець</h2>
+        </div>
+        <img
+          src="images/book.jpg"
+          alt="Обкладинка книги «Звичайна» Лілії Кухарець"
+          width="400"
+          height="600"
+          loading="lazy"
+        />
+      </section>
+      <section id="about" class="about_book">
+        <h2>Анотація</h2>
+        <div class="about_book_content">
+          Ніяких емоційних гойдалок і розбитого скла - тільки легка, як
+          цукерочка до чаю, історія. <br /><br /> Людство рятується від загадкових мутованих
+          тварин в організованих поселеннях. Лета - абсолютно звичайна дівчина,
+          така звичайна, що завалює всі тести на отримання бажаної професії.<br />
+          Здавалося б, тепер до скону гарувати на неулюбленій роботі - ач ні, і
+          дівчина опиняється за межею поселення. Виживи або помри. Чи зустрінь
+          хлопця, який уміє виживати і згодиться провести тебе додому. <br />Що
+          обереш, Лето - плисти за течією або проти?<br /><br /> Романтика, пригоди,
+          таємниці - у першій частині дилогії «Звичайна».
+        </div>
+      </section>
+      <section id="preorder" class="preorder">
+        <img src="images/book.jpg" alt="Book" width="100" height="150" />
+        <a
+          id="preorder_button"
+          target="_blank"
+          class="preorder_button"
+          href="https://docs.google.com/forms/d/e/1FAIpQLScegJtLFg-BegmtxXOOJBaEoHkbJatWy4S_NVsayl5N-vkGmA/viewform"
+        >
+          Передзамовлення
+        </a>
+      </section>
+      <section id="excerpt" class="excerpt">
+        <div class="excerpt_content">
+          <h2>Уривок</h2>
+          Звичайна людина не витримала б такої кількості відмов. Але мені
+          доводилося — хоча я була абсолютно звичайною.
+          <br />
+          — Мені шкода, — вже вкотре упродовж тижня сказала мені доктор
+          Протасія, котра цього року відповідала за розподіл. — Твоє вміння
+          зосереджуватись і концентруватись цілком відповідає нормі, проте
+          інтелектуальних здібностей недостатньо.
+          <br />
+          Отже, знавцем мені таки не стати. Не те щоб я хотіла бути знавцем. Я
+          прагнула стати будь-ким. Будь-ким особливим.
+          <br />
+          Сонце повзло до горизонту, зачіпаючи круглим диском останні поверхи
+          Внутрішнього Кола. Мій настрій впевнено наслідував траєкторію світила.
+          Завтра останній тест, та якщо я не пройду і його, доведеться стати
+          клятою збирачкою.
+          <br />
+          — Не засмучуйся, Лето, — незграбно спробувала заспокоїти мене доктор
+          Протасія. — Бути науковцем — це важка і відповідальна робота.
+          <br />
+          Їй легко так говорити. Вона стояла переді мною, — втілення інтелекту,
+          практикуюча науковиця психологічного спектру, — і намагалась
+          переконати мене, що я нічим не гірша. Мабуть, всі думки відобразились
+          на моєму невдоволеному обличчі, бо пані Протасія враз відвела погляд
+          убік, збагнувши, що ідея втішати мене від самого початку була
+          провальною.
+          <br />
+          — Ну… Е-е-е… Більше даних ти знайдеш у власному кабінеті в Архіві… А
+          зараз йди відпочинь та… Та гарного вечора!
+          <br />Я зітхнула, кинула їй щось на кшталт стандартного «навзаєм»,
+          розвернулась і знову зітхнула. <br />Мені не пощастило бути мною.
+          Звісно, я мала певні позитивні якості, але щоразу чогось не вистачало.
+          Посидючості — щоб стати циклівцем, дбайливості — для кар’єри
+          відтворювачки, а тепер я виявилась недостатньо розумною, аби бути
+          науковицею. Це страшенно дратувало. Ба більше, я була впевнена, що всі
+          мої знайомі отримають дозвіл на бажаний напрям. Залишусь лише я — ні
+          здібностей, ні бажань. <br />Система напрямів давала Плантації
+          можливість використовувати людський ресурс найефективніше. Кожен був
+          там, де йому належало бути. Розумні та здатні зосередитись на чомусь
+          конкретному ставали науковцями, сиділи у стерильних лабораторіях,
+          розгадували загадки світу, лікували, навчали дітей. Посидючі з сильною
+          мотивацією робилися циклівцями — їх основною задачею було виконання
+          рутинних повторюваних дій, наприклад, облік ресурсів або приготування
+          щоденних наборів їжі. Дбайливі та добрі були відтворювачами . Вони
+          годували Плантацію, доглядаючи за тваринами та рослинами на фермах між
+          Колами. Нарешті, особи з фантазією і талантом ставали творцями —
+          розвивали та підтримували культуру людства, а також підіймали наш
+          моральний дух. <br />Ах, точно, ще були збирачі. І збирачами ставали
+          всі ті, хто не мав якостей для попередніх напрямів. Основне завдання
+          збирача — здобування ресурсів, будь то вугілля, залізо чи деревина. Це
+          робота не для слабких, і знецінювати її було б щонайменше невдячно. Та
+          якщо я завтра не здам тест на творця, то стану клятою збирачкою. І, як
+          на мене, це дає мені право на знецінення . <br />Я злісно човгнула
+          ногою по асфальту, виражаючи свою незгоду. Чому так склалося? Невже в
+          мені немає нічого особливого, ані крихточки? <br />Принаймні, бажання
+          йти в Архів точно немає. Навіщо? Щоб ще раз дізнатися, що купка
+          науковців ідентифікує мене дурепою? Дякую, для одного вечора цього
+          добра достатньо. Тому від Навчальні я звернула ліворуч, до темних
+          будиночків Внутрішнього Кола. <br />Єдине, про що я не подумала,
+          відмовляючись від ідеї зависнути в Архіві — це необхідність
+          спілкування з людьми, котрі пройшли тест.
+          <br />
+          Очікувано, біля входу в перший будинок дев’ятої секції з темряви
+          вигулькнуло знайоме смагляве обличчя. Ховатися було запізно, та й
+          куди?
+          <br />
+          — Ну як воно, можна вітати? — викрикнула Перкунія, не добігаючи до
+          мене метрі зо п’ять.
+          <br />Певно, вона очікувала на ствердне «так», проте його в кишені я
+          не мала, тому промовчала. <br />Але Перкунія все ж отримала відповідь
+          — моє обличчя не приховує абсолютно нічого. Подрузі вистачило єдиного
+          погляду. <br />— Мені шкода, — сказала вона вже тихо, заштовхуючи
+          усмішку і ямочки на щоках назад під напускну незворушність. <br />—
+          Байдуже, — неохоче відмахнулась я. — Ти як? <br />Риторичне запитання.
+          Звісно, вона пройшла. <br />Перкунію вважали генійкою нашого
+          покоління, та і сама вона марила науковим напрямом останні років
+          десять. Здавалося, ця дівчина чекала свого двадцять першого дня
+          народження не з острахом чи хвилюванням, як зазвичай буває, а зі щирою
+          нетерплячістю. Можливо, стерильні кімнати Лабораторії їй навіть
+          снились. <br />— Склала, — коротко повідомила вона й затим вибухнула
+          тирадою праведного гніву. — Вони, трясця, не знають, що втрачають!
+          Твоя спостережливість їм явно не зашкодила б! Кусатимуть лікті!
+          <br />— То й ти кусатимеш, Перкуніє… Ти тепер теж частина напряму. Не
+          варто мене втішати. І ти, і я знаємо, що клепки мені бракує.
+          <br />Подруга промовчала. Вона не хотіла визнавати очевидних речей, а
+          надто таких, що зробили б мені ще гірше. <br />Ми мовчки рушили до
+          сходів. У гуртожитках Внутрішнього Кола жила сама молодь — ті, хто ще
+          не написав тести. Я ділила кімнату з кращою подругою — Тілою. Перкунія
+          мешкала на поверх вище. <br />Повз нас пройшли трійко подруг, жваво
+          обговорюючи останні новини. <br />— Знову інцидент, — почула я уривки
+          фраз. — Інакша риба на сході… Ледве вбили гарпуном... Є жертви.
+          <br />— Схоже, Інакші знову проникнули на Плантацію, — підтвердила
+          почуте Перкунія, злісно стискаючи долоні в кулаки. — Знати б лишень,
+          як ці тварюки оминають бар’єр, мороки стало б значно менше! <br />Мою
+          подругу завжди цікавили Інакші; точніше, те, що в Інакших всередині.
+          Вона б усе віддала, аби попорпатись у нутрощах одного з тих чудовиськ.
+          Але їм не зберігали життя і не досліджували трупи — якщо і вдавалось
+          вдарити, це був удар на смерть, а потім тушу одразу знищували. Люди
+          боялись, що навіть поранені чи мертві Інакші могли наробити біди.
+          <br />— Можливо, несправність у бар’єрі або прогалина в покритті, —
+          знизала плечима я. <br />— Я тебе прошу! — Перкунія підвищила голос. —
+          Вважаєш, вони не знайшли б прогалину?! <br />Подруга була права, а
+          якщо і ні, сил на суперечки я не мала. <br />— Тобі видніше. Я ж
+          просто дурепка. <br />Я рвучко відчинила вхідні двері, пропускаючи
+          Перкунію вперед. <br />— І куди дивиться Лабораторія? — не зважаючи на
+          мої самокритичні нападки, продовжувала палати та. — Чому так мало
+          досліджують Інакших?! <br />— Не всім подобається стояти однією ногою
+          в могилі, — зауважила я. Інакші — люті, смертоносні істоти, у їхніх
+          інстинктах закладено полювати і вбивати. Ми, люди, боїмося й
+          ненавидимо їх. Водночас ми неспроможні завдати їм суттєвої шкоди. А
+          дехто взагалі вважає мутантів надприродними створіннями, з якими не
+          варто жартувати. <br />— Наука потребує жертв, — гмикнула Перкунія.
+          Вона однозначно любила Інакших (чи таємниці, які ті приховували)
+          більше, аніж людей. <br />— Ти вечеряла? — я поспішила змінити тему.
+          Моїх жертв науці на сьогоднішньому тесті, схоже, було недостатньо —
+          катування знаннями тривало. <br />— Ще ні… Можу притягнути набір до
+          тебе… Тіла, певно, вже вдома. Що вони там обіцяли сьогодні покласти в
+          набір? Курятину териякі і рис? — облизнулася Перкунія. <br />— Щось
+          таке, — байдуже кивнула я. Тіла ще вчора пройшла тест на відтворювачку
+          і тепер мала два вільні вечори. <br />Ми піднялися на третій поверх,
+          пройшли довгим коридором з тьмяним освітленням і невиразного кольору
+          стінами без жодних оздоб. «Могли б хоч номер поверху повісити», —
+          завжди бідкалась Перкунія. Я машинально штовхнула передостанні двері
+          ліворуч. Вони відчинились. Отже, Тіла вдома. <br />Вона сиділа на
+          ліжку якась дивна. Очі широко розплющені, світле кучеряве волосся
+          скуйовджене, пальці стискають коліна. <br />— Дівчата, — розгублено
+          протягнула моя сусідка по кімнаті, — вони сказали, що я можу стати
+          матір’ю!
+        </div>
+      </section>
+      <section id="feedback">
+        <h2>Зворотній зв'язок</h2>
+        <ul class="social-links">
+          <li>
+            <a
+              href="https://www.instagram.com/time4ice"
+              target="_blank"
+              rel="noopener"
+              aria-label="Instagram"
+            >
+              <i class="fa fa-instagram"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.threads.com/@time4ice"
+              target="_blank"
+              rel="noopener"
+              aria-label="Threads"
+            >
+              <i class="fa fa-brands fa-threads"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              href="mailto:lillykukharets0325@gmail.com"
+              target="_blank"
+              rel="noopener"
+              aria-label="Email"
+            >
+              <i class="fa-solid fa-envelope"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.goodreads.com/book/show/231547139"
+              target="_blank"
+              rel="noopener"
+              aria-label="GoodReads"
+            >
+              <i class="fa-brands fa-goodreads"></i>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://www.amazon.com/%D0%97%D0%B2%D0%B8%D1%87%D0%B0%D0%B9%D0%BD%D0%B0-Ukrainian-%D0%9B%D1%96%D0%BB%D1%96%D1%8F-%D0%9A%D1%83%D1%85%D0%B0%D1%80%D0%B5%D1%86%D1%8C/dp/B0F5GF9SL9"
+              target="_blank"
+              rel="noopener"
+              aria-label="Amazon"
+            >
+              <i class="fa-brands fa-amazon"></i>
+            </a>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <p>© 2025 Лілія Кухарець. Усі права захищені.</p>
+    </footer>
+    <script>
+      document.getElementById('preorder_button').addEventListener('click', async () => {
+        try {
+          const response = await fetch('https://bookpreorder.onrender.com/api/Checkout', {
+            method: 'POST'
+          });
+          const data = await response.json();
+          if (data.redirectUrl) {
+            window.location.href = data.redirectUrl;
+          } else {
+            alert('Не вдалося отримати посилання на оплату.');
+          }
+        } catch (error) {
+          console.error('Помилка під час передзамовлення:', error);
+          alert('Сталася помилка. Спробуйте пізніше.');
+        }
+      });
+    </script>
+  </body>
+</html>
