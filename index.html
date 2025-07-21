@@ -26,7 +26,6 @@
     ></script>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="canonical" href="https://zvychajna.pp.ua/" />
-    <!-- Open Graph -->
     <meta property="og:type" content="book" />
     <meta property="og:title" content="Звичайна — книга Лілії Кухарець" />
     <meta
@@ -38,7 +37,6 @@
       property="og:image"
       content="https://zvychajna.pp.ua/images/book.jpg"
     />
-    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Звичайна — книга Лілії Кухарець" />
     <meta
@@ -49,7 +47,6 @@
       name="twitter:image"
       content="https://zvychajna.pp.ua/images/book.jpg"
     />
-    <!-- Structured Data -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -107,22 +104,12 @@
         <div class="product">
           <img src="images/book.jpg" alt="Book" width="100" height="150" />
           <p>Паперова версія - 350 грн</p>
-          <img
-            src="images/monocheckout_button_black_normal.svg"
-            id="preorder_button"
-            alt="Замовити"
-            style="cursor: pointer"
-          />
+          <button id="preorder_button" class="order-btn">Замовити</button>
         </div>
         <div class="product">
           <img src="images/book.jpg" alt="Book" width="100" height="150" />
           <p>Електронна версія - 200 грн</p>
-          <img
-            src="images/monocheckout_button_black_normal.svg"
-            id="invoice_button"
-            alt="Замовити"
-            style="cursor: pointer"
-          />
+          <button id="invoice_button" class="order-btn">Замовити</button>
         </div>
       </section>
       <section id="excerpt" class="excerpt">
@@ -316,6 +303,17 @@
     <footer>
       <p>© 2025 Лілія Кухарець. Усі права захищені.</p>
     </footer>
+
+    <div id="drawer_overlay" class="drawer-overlay"></div>
+    <div id="drawer_cart" class="drawer-cart">
+      <div class="drawer-header">
+        <h3>Ваше замовлення</h3>
+        <button id="close_drawer_btn" class="close-drawer-btn">&times;</button>
+      </div>
+      <div id="drawer_content" class="drawer-content">
+        </div>
+    </div>
+
     <script src="scripts/script.js"></script>
   </body>
 </html>

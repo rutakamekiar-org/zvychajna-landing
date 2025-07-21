@@ -111,14 +111,30 @@ img {
   flex-direction: row;
   align-items: center;
   margin-bottom: 40px;
-  gap: 10px;
+  gap: 20px;
   padding: 0 20px;
+  flex-wrap: wrap;
 }
 .product {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+.order-btn {
+  background-color: var(--author-name-color);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-top: 10px;
+  transition: background-color 0.3s;
+}
+.order-btn:hover {
+  background-color: #6a4d31;
 }
 /* Excerpt */
 .excerpt {
@@ -194,4 +210,114 @@ footer {
   flex-direction: column;
   align-items: center;
   text-align: center;
+}
+
+/* Drawer Cart Styles */
+.drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1001;
+  display: none;
+}
+
+.drawer-cart {
+  position: fixed;
+  top: 0;
+  right: -100%; /* Start off-screen */
+  width: 320px;
+  height: 100%;
+  background-color: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 1002;
+  transition: right 0.4s ease-in-out;
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-cart.open {
+  right: 0; /* Slide in */
+}
+
+.drawer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.drawer-header h3 {
+  margin: 0;
+  color: var(--author-name-color);
+}
+
+.close-drawer-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: #888;
+}
+
+.drawer-content {
+  padding: 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.drawer-product-details {
+  text-align: center;
+}
+
+.drawer-product-details img {
+  width: 100px;
+  height: auto;
+  margin: 0 auto 15px;
+}
+
+.drawer-product-details h4 {
+  margin: 0 0 5px 0;
+  color: var(--author-name-color);
+  font-size: 1.1rem;
+}
+
+.drawer-product-details p {
+  margin: 0 0 20px 0;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.drawer-form-group {
+  margin-bottom: 15px;
+}
+
+.drawer-form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.drawer-form-group input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.drawer-purchase-button-container {
+  margin-top: auto; /* Pushes the button to the bottom */
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+
+.drawer-purchase-button-container img {
+  cursor: pointer;
+  margin: 0 auto;
 }
