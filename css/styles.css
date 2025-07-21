@@ -1,159 +1,197 @@
-/* 1. Скидання */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+  --bg-start-color: #c4d6b0;
+  --title-color: #f09b30;
+  --author-name-color: #463422;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  scroll-behavior: smooth;
+}
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  padding-top: 70px;
+  background-color: #fff;
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--bg-start-color);
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+header nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+header nav a {
+  color: var(--author-name-color);
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0 15px;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+header nav a:hover {
+  text-decoration: underline;
+}
+main {
+  width: 100%;
+}
+/* offset for in-page anchors */
+main > * {
+  scroll-margin-top: 80px;
+}
+/* make images responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+/* Preview section */
+#preview {
+  width: 100%;
+  min-height: 300px;
+  background-color: var(--bg-start-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px;
+  gap: 20px;
+}
+.preview_text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.book_title {
+  color: var(--title-color);
+  text-transform: uppercase;
+  font-size: 3rem;
+  text-shadow: -4px 0px 4px #51573d;
+  margin: 10px 0;
+  font-weight: 100;
+}
+.author_name {
+  color: var(--author-name-color);
+  font-size: 1.2rem;
+}
+/* About Book */
+.about_book {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.about_book_content {
+  max-width: 650px;
+  font-size: 1rem;
+  line-height: 1.7em;
+}
+/* Preorder */
+.preorder {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 40px;
+  gap: 10px;
+  padding: 0 20px;
+}
+.product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+/* Excerpt */
+.excerpt {
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.excerpt_content {
+  max-width: 600px;
+  font-size: 1rem;
+  line-height: 1.7em;
+  text-align: left;
+  border: 4px solid var(--bg-start-color);
+  padding: 20px;
+}
+.excerpt_content h2 {
+  text-align: center;
+}
+footer {
+  text-align: center;
+  padding: 20px;
+}
+/* Mobile adjustments */
+@media (max-width: 768px) {
+  header {
+    height: 60px;
+    padding: 0 10px;
   }
-  
-  /* 2. Палітра та базове */
-  :root {
-    --tan-color: #E0CEA8;
-    --color-accent: #e18d00;    /* помаранчевий */
-    --color-dark: #3b5f41;      /* темний зелений */
-    --font-base: Arial, sans-serif;
-    /* картка */
-    --card-bg: var(--tan-color);
-    --card-radius: 8px;
-    --card-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    --overlay-bg: rgba(59,95,65, 0.7);
-  }
-  
   body {
-    font-family: var(--font-base);
-    color: #333;
-    line-height: 1.6;
-    background-color: #faf7f1;
+    padding-top: 60px;
   }
-  
-  /* 3. Hero (залишаємо як є) */
-  .hero {
-    position: relative;
-    height: 100vh;
-    background: url('../images/cover.jpg') center/cover fixed no-repeat;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+  header nav a {
+    margin: 5px;
+    font-size: 12px;
   }
-  .hero .overlay {
-    position: absolute;
-    inset: 0;
-    background-color: var(--overlay-bg);
-  }
-  .hero-content {
-    position: relative;
-    color: var(--tan-color);
-    padding: 0 1rem;
-    max-width: 800px;
-  }
-  
-  /* 4. Усі інші секції: фон-обкладинка + оверлей */
-  section.description,
-  section.excerpt,
-  section.preorder {
-    position: relative;
-    background: url('../images/cover.jpg') center/cover fixed no-repeat;
-    padding: 1rem 0;  /* вертикальні відступи */
-    overflow: hidden;
-  }
-  section.description::before,
-  section.excerpt::before,
-  section.preorder::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-color: var(--overlay-bg);
-  }
-  
-  /* 5. Плаваюча картка */
-  section .container {
-    position: relative;     /* над оверлеєм */
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 2rem 1.5rem;
-    background-color: var(--card-bg);
-    border-radius: var(--card-radius);
-    box-shadow: var(--card-shadow);
-  }
-  
-  /* 6. Заголовки та текст */
-  h2 {
-    margin-bottom: 1rem;
+  .book_title {
     font-size: 2rem;
-    color: var(--color-dark);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
   }
-  
-  /* 7. Цитата */
-  .excerpt blockquote {
-    font-style: italic;
-    padding-left: 1rem;
-    border-left: 4px solid var(--color-accent);
-    color: #555;
+  .author_name {
+    font-size: 1rem;
   }
-  
-  /* 8. Кнопки */
-  .btn {
-    display: inline-block;
-    background-color: var(--color-accent);
-    color: #fff;
-    text-decoration: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 4px;
-    transition: transform 0.2s, background-color 0.3s;
-    position: relative;
-    z-index: 1; /* над карткою */
+  .about_book_content,
+  .excerpt_content {
+    font-size: 0.9rem;
   }
-  .btn:hover {
-    transform: translateY(-2px);
-    background-color: #c97400;
-  }
-  
-  /* 9. Футер як секція */
-  .site-footer {
-    position: relative;
-    background: url('../images/cover.jpg') center/cover fixed no-repeat;
-  }
-  .site-footer::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background-color: var(--overlay-bg-light);
-  }
-  .site-footer .container {
-    position: relative;
-    text-align: center;
-    color: #666;
-    background-color: var(--card-bg);
-    border-radius: var(--card-radius);
-    box-shadow: var(--card-shadow);
-    padding: 1.5rem;
-  }
-  
-/* 1. Збільшуємо розмір і жирність заголовка */
-.hero-content h1 {
-    font-size: clamp(2rem, 10vw, 5rem);
-    font-weight: 900;              /* робимо дуже жирним */
-    letter-spacing: 0.15em;        /* трохи більше простору між літерами */
-    text-transform: uppercase;     /* усе великими — виглядає драматичніше */
-    text-shadow:
-      3px 3px 6px rgba(0,0,0,0.6), /* сильніша тінь для глибини */
-      -2px -2px 4px rgba(255,255,255,0.2); /* легкий білий контур для контрасту */
-    margin-bottom: 0.75rem;        /* більше простору до кнопки */
-  }
-  
-  /* 2. Підзаголовок — робимо яснішим */
-  .hero-content .subtitle {
-    font-size: 2rem;               /* раніше 1.5rem */
-    font-weight: 500;              /* напівжирний */
-    letter-spacing: 0.05em;
-    margin-bottom: 1.5rem;
-    color: #f3e5c0;                /* бежевий з палітри, щоб вирізнявся на темно-зеленому */
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-  }
-  
-  /* 3. Кнопка — додаємо легку анімацію входу */
-  .hero-content .btn {
-    animation: pop-in 0.6s ease-out both;
-  }
+}
+.social-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+.social-links a {
+  font-size: 1.6rem;
+  color: var(--author-name-color);
+  transition: color 0.2s;
+}
+.social-links a:hover,
+.social-links a:focus {
+  color: var(--bg-start-color);
+  outline: none;
+}
+.social-links a:focus {
+  outline: 2px dashed var(--bg-start-color);
+  outline-offset: 4px;
+}
+#feedback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}

@@ -24,199 +24,7 @@
       src="https://kit.fontawesome.com/dcb994b94b.js"
       crossorigin="anonymous"
     ></script>
-    <style>
-      :root {
-        --bg-start-color: #c4d6b0;
-        --title-color: #f09b30;
-        --author-name-color: #463422;
-      }
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-      }
-      html {
-        scroll-behavior: smooth;
-      }
-      body {
-        padding: 0;
-        margin: 0;
-        font-family: Arial, sans-serif;
-        padding-top: 70px;
-        background-color: #fff;
-      }
-      header {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: var(--bg-start-color);
-        height: 70px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0 20px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        z-index: 1000;
-      }
-      header nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      header nav a {
-        color: var(--author-name-color);
-        text-decoration: none;
-        font-weight: bold;
-        margin: 0 15px;
-        text-transform: uppercase;
-        font-size: 14px;
-      }
-      header nav a:hover {
-        text-decoration: underline;
-      }
-      main {
-        width: 100%;
-      }
-      /* offset for in-page anchors */
-      main > * {
-        scroll-margin-top: 80px;
-      }
-      /* make images responsive */
-      img {
-        max-width: 100%;
-        height: auto;
-        display: block;
-      }
-      /* Preview section */
-      #preview {
-        width: 100%;
-        min-height: 300px;
-        background-color: var(--bg-start-color);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-        padding: 20px;
-        gap: 20px;
-      }
-      .preview_text {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 20px;
-      }
-      .book_title {
-        color: var(--title-color);
-        text-transform: uppercase;
-        font-size: 3rem;
-        text-shadow: -4px 0px 4px #51573d;
-        margin: 10px 0;
-        font-weight: 100;
-      }
-      .author_name {
-        color: var(--author-name-color);
-        font-size: 1.2rem;
-      }
-      /* About Book */
-      .about_book {
-        padding: 40px 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-      .about_book_content {
-        max-width: 650px;
-        font-size: 1rem;
-        line-height: 1.7em;
-      }
-      /* Preorder */
-      .preorder {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        margin-bottom: 40px;
-        gap: 10px;
-        padding: 0 20px;
-      }
-      /* Excerpt */
-      .excerpt {
-        padding: 40px 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-      .excerpt_content {
-        max-width: 600px;
-        font-size: 1rem;
-        line-height: 1.7em;
-        text-align: left;
-        border: 4px solid var(--bg-start-color);
-        padding: 20px;
-      }
-      .excerpt_content h2 {
-        text-align: center;
-      }
-      footer {
-        text-align: center;
-        padding: 20px;
-      }
-      /* Mobile adjustments */
-      @media (max-width: 768px) {
-        header {
-          height: 60px;
-          padding: 0 10px;
-        }
-        body {
-          padding-top: 60px;
-        }
-        header nav a {
-          margin: 5px;
-          font-size: 12px;
-        }
-        .book_title {
-          font-size: 2rem;
-        }
-        .author_name {
-          font-size: 1rem;
-        }
-        .about_book_content,
-        .excerpt_content {
-          font-size: 0.9rem;
-        }
-      }
-      .social-links {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-      }
-      .social-links a {
-        font-size: 1.6rem;
-        color: var(--author-name-color);
-        transition: color 0.2s;
-      }
-      .social-links a:hover,
-      .social-links a:focus {
-        color: var(--bg-start-color);
-        outline: none;
-      }
-      .social-links a:focus {
-        outline: 2px dashed var(--bg-start-color);
-        outline-offset: 4px;
-      }
-      #feedback {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-    </style>
+    <link rel="stylesheet" href="css/styles.css" />
     <link rel="canonical" href="https://zvychajna.pp.ua/" />
     <!-- Open Graph -->
     <meta property="og:type" content="book" />
@@ -296,13 +104,26 @@
         </div>
       </section>
       <section id="preorder" class="preorder">
-        <img src="images/book.jpg" alt="Book" width="100" height="150" />
-        <img
-          src="images/monocheckout_button_black_normal.svg"
-          id="preorder_button"
-          alt="Передзамовити"
-          style="cursor: pointer"
-        />
+        <div class="product">
+          <img src="images/book.jpg" alt="Book" width="100" height="150" />
+          <p>Паперова версія - 350 грн</p>
+          <img
+            src="images/monocheckout_button_black_normal.svg"
+            id="preorder_button"
+            alt="Замовити"
+            style="cursor: pointer"
+          />
+        </div>
+        <div class="product">
+          <img src="images/book.jpg" alt="Book" width="100" height="150" />
+          <p>Електронна версія - 200 грн</p>
+          <img
+            src="images/monocheckout_button_black_normal.svg"
+            id="invoice_button"
+            alt="Замовити"
+            style="cursor: pointer"
+          />
+        </div>
       </section>
       <section id="excerpt" class="excerpt">
         <div class="excerpt_content">
@@ -495,33 +316,6 @@
     <footer>
       <p>© 2025 Лілія Кухарець. Усі права захищені.</p>
     </footer>
-    <script>
-      const API_URL = "https://bookpreorder.onrender.com/api/Checkout";
-      window.addEventListener("DOMContentLoaded", () => {
-        fetch(API_URL, { method: "GET" })
-      });
-      document
-        .getElementById("preorder_button")
-        .addEventListener("click", async () => {
-          try {
-            const response = await fetch(API_URL, {
-              method: "POST",
-            });
-
-            const data = await response.json();
-
-            if (data.redirectUrl) {
-              window.location.href = data.redirectUrl;
-            } else {
-              alert("Не вдалося отримати посилання на оплату.");
-            }
-          } catch (error) {
-            console.error("POST помилка:", error);
-            alert(
-              "Сервер зараз недоступний. Спробуйте ще раз за кілька хвилин."
-            );
-          }
-        });
-    </script>
+    <script src="scripts/script.js"></script>
   </body>
 </html>
