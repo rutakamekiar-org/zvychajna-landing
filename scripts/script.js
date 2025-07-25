@@ -57,7 +57,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <input type="tel" id="customer_phone" placeholder="+380XXXXXXXXX" required />
           </div>
           <div class="drawer-purchase-button-container">
-            <img width="150" src="images/plata_light_bg.svg" id="drawer_purchase_digital" alt="Замовити" />
+            <img src="images/monocheckout_button_black_normal.svg" id="drawer_purchase_digital" alt="Замовити" />
           </div>
         `;
       }
