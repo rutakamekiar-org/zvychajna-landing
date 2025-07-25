@@ -1,7 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     // API URLs
-    const CHECKOUT_API_URL = "https://spicy-avrit-kukharets-021c9f66.koyeb.app/api/checkout";
-    const INVOICE_API_URL = "https://skylark-brief-uniquely.ngrok-free.app/api/invoice";
+    const API_URL = "https://spicy-avrit-kukharets-021c9f66.koyeb.app"
   
     // Drawer elements
     const drawer = document.getElementById("drawer_cart");
@@ -27,16 +26,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const populateDrawer = (type) => {
       let contentHTML = "";
       if (type === "paper") {
+          // <div class="drawer-form-group">
+          //   <label for="quantity">Кількість:</label>
+          //   <input type="number" id="quantity" value="1" min="1" />
+          // </div>
         contentHTML = `
           <div class="drawer-product-details">
             <img src="images/book.jpg" alt="Паперова версія" />
             <h4>Звичайна: Паперова версія</h4>
             <p>350 грн</p>
           </div>
-          <div class="drawer-form-group">
-            <label for="quantity">Кількість:</label>
-            <input type="number" id="quantity" value="1" min="1" />
-          </div>
+          
           <div class="drawer-purchase-button-container">
             <img src="images/monocheckout_button_black_normal.svg" id="drawer_purchase_paper" alt="Замовити" />
           </div>
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <p>200 грн</p>
           </div>
           <div class="drawer-form-group">
-            <label for="customer_email">Ваш Email:</label>
+            <label for="customer_email">Ваш email:</label>
             <input type="email" id="customer_email" placeholder="email@example.com" required />
           </div>
           <div class="drawer-form-group">
@@ -113,13 +113,13 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   
     const handlePaperPurchase = () => {
-      const quantity = document.getElementById("quantity").value;
+      // const quantity = document.getElementById("quantity").value;
       const options = {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ count: parseInt(quantity, 10) }),
+        // body: JSON.stringify({ count: parseInt(quantity, 10) }),
       };
-      handleApiRequest(CHECKOUT_API_URL, options);
+      handleApiRequest(API_URL + '/api/checkout', options);
     };
   
     const handleDigitalPurchase = () => {
@@ -144,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
           productId: "c1f3c4a6-f4b1-4351-9b83-5b4b4be48896",
         }),
       };
-      handleApiRequest(INVOICE_API_URL, options);
+      handleApiRequest(API_URL + '/api/invoice', options);
     };
   
     // Event Listeners
