@@ -1,8 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     // API URLs
-    const CHECKOUT_API_URL = "https://bookpreorder.onrender.com/api/checkout";
-    const INVOICE_API_URL =
-      "https://skylark-brief-uniquely.ngrok-free.app/api/invoice";
+    const CHECKOUT_API_URL = "https://spicy-avrit-kukharets-021c9f66.koyeb.app/api/checkout";
+    const INVOICE_API_URL = "https://skylark-brief-uniquely.ngrok-free.app/api/invoice";
   
     // Drawer elements
     const drawer = document.getElementById("drawer_cart");
