@@ -88,7 +88,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 alert("Не вдалося отримати посилання на оплату.");
             }
         } else { // Handle API errors
-            debugger
             if (data.errors) {
                 for (const field in data.errors) {
                     if (data.errors.hasOwnProperty(field)) {
