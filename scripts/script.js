@@ -11,7 +11,15 @@ document.addEventListener("DOMContentLoaded", () => {
     // Main page buttons
     const preorderBtn = document.getElementById("preorder_button");
     const invoiceBtn = document.getElementById("invoice_button");
-  
+    const globalLoader = document.getElementById("global_loader");
+
+    const showGlobalLoader = () => {
+      globalLoader.style.display = "flex";
+    };
+    
+    const hideGlobalLoader = () => {
+      globalLoader.style.display = "none";
+    };
     const openDrawer = (type) => {
       populateDrawer(type);
       overlay.style.display = "block";
@@ -77,6 +85,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   
     const handleApiRequest = async (url, options) => {
+      showGlobalLoader();
+
       try {
         const response = await fetch(url, options);
         const data = await response.json();
@@ -86,8 +96,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 window.location.href = data.redirectUrl;
             } else {
                 alert("Не вдалося отримати посилання на оплату.");
+                hideGlobalLoader();
             }
         } else { // Handle API errors
+          hideGlobalLoader();
             if (data.errors) {
                 for (const field in data.errors) {
                     if (data.errors.hasOwnProperty(field)) {
@@ -106,6 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
       } catch (error) {
+        hideGlobalLoader();
         console.error("POST помилка:", error);
         alert("Сервер зараз недоступний. Спробуйте ще раз за кілька хвилин.");
       }
