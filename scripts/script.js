@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 hideGlobalLoader();
             }
         } else { // Handle API errors
-          hideGlobalLoader();
+            hideGlobalLoader();
             if (data.errors) {
                 for (const field in data.errors) {
                     if (data.errors.hasOwnProperty(field)) {
