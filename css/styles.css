@@ -348,3 +348,13 @@ footer {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+.age_restriction {
+  font-size: 0.95rem;
+  color: #8b0000;
+  font-weight: bold;
+  margin-top: 14px;
+  background-color: #ffeaea;
+  padding: 4px 10px;
+  border-radius: 8px;
+}
