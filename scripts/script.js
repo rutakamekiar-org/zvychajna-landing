@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="drawer-product-details">
             <img src="images/book.jpg" alt="Паперова версія" />
             <h4>Звичайна: Паперова версія</h4>
-            <p>350 грн</p>
+            <p>231 грн</p>
           </div>
           
           <div class="drawer-purchase-button-container">
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
           <div class="drawer-product-details">
             <img src="images/book.jpg" alt="Електронна версія" />
             <h4>Звичайна: Електронна версія</h4>
-            <p>200 грн</p>
+            <p>132 грн</p>
           </div>
           <div class="drawer-form-group">
             <label for="customer_email">Ваш email:</label>
