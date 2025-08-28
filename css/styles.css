@@ -358,3 +358,101 @@ footer {
   padding: 4px 10px;
   border-radius: 8px;
 }
+
+/* Rating UI — Ukrainian labels + clear Goodreads CTA */
+.rating {
+  margin-top: 10px;
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  align-items: center;
+  gap: 12px;
+}
+.rating-value {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #222;
+}
+.rating-meta {
+  font-size: 0.95rem;
+  color: #5a5a5a;
+}
+/* Button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid #d9d9d9;
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+  transition: transform .06s ease, box-shadow .18s ease, background-color .18s ease;
+}
+.btn:focus-visible {
+  outline: 3px solid rgba(240,155,48,0.4);
+  outline-offset: 2px;
+}
+.btn:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn-goodreads {
+  margin-top: 10px;
+  color: #1f1f1f;
+  border-color: #cfc7ba;
+  background: var(--title-color);
+}
+.btn-goodreads i { font-size: 1.1rem; }
+/* Stars look */
+.stars {
+  --star-size: 26px;
+  --star-count: 5;
+  position: relative;
+  width: calc(var(--star-size) * var(--star-count));
+  height: var(--star-size);
+  display: inline-block;
+  flex: 0 0 auto;
+
+  /* empty stars as light beige using mask */
+  background-color: #9a8b72;
+  -webkit-mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><polygon points='12,2 15,9 22,9 16.5,13.5 18.5,21 12,16.8 5.5,21 7.5,13.5 2,9 9,9'/></svg>");
+  mask-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><polygon points='12,2 15,9 22,9 16.5,13.5 18.5,21 12,16.8 5.5,21 7.5,13.5 2,9 9,9'/></svg>");
+  -webkit-mask-size: var(--star-size) var(--star-size);
+  mask-size: var(--star-size) var(--star-size);
+  -webkit-mask-repeat: repeat-x;
+  mask-repeat: repeat-x;
+}
+.stars::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: calc((var(--rating) / 5) * 100%);
+  background-color: var(--title-color);
+  -webkit-mask-image: inherit;
+  mask-image: inherit;
+  -webkit-mask-size: inherit;
+  mask-size: inherit;
+  -webkit-mask-repeat: inherit;
+  mask-repeat: inherit;
+}
+/* Motion reduce safety */
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: none; }
+}
+/* Mobile tuning */
+@media (max-width: 520px) {
+  .rating {
+    grid-template-columns: auto auto 1fr;
+    grid-auto-flow: row;
+    gap: 10px 12px;
+  }
+  .stars { --star-size: 18px; }
+  .rating-value { font-size: 1.15rem; }
+  .rating-meta { font-size: 0.9rem; }
+  .btn { padding: 8px 10px; }
+}
