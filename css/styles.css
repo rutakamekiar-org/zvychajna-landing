@@ -311,13 +311,27 @@ footer {
 }
 
 .drawer-purchase-button-container {
-  margin-top: auto; /* Pushes the button to the bottom */
-  padding-top: 20px;
-  border-top: 1px solid #eee;
-  text-align: center;
+  background: #000000;
+  padding: 8px;
+  border: 1px black;
+  border-radius: 10px;
+  margin: 17px 20px 0 20px;
+  cursor: pointer;
 }
 
 .drawer-purchase-button-container img {
+  margin: 0 auto;
+}
+
+.drawer-purchase-button-container-checkout {
+  position: sticky;
+  bottom: 0;
+  background: white;
+  padding: 12px;
+  border-top: 1px solid #eee;
+}
+
+.drawer-purchase-button-container-checkout img {
   cursor: pointer;
   margin: 0 auto;
 }
@@ -456,3 +470,194 @@ footer {
   .rating-meta { font-size: 0.9rem; }
   .btn { padding: 8px 10px; }
 }
+
+.segmented {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  gap: 8px;
+  background: #f6f6f6;
+  border: 1px solid #e6e6e6;
+  border-radius: 999px;
+  padding: 6px;
+  }
+  .segmented input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  }
+  .segmented label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color .18s ease, box-shadow .18s ease, transform .06s ease;
+  }
+  .segmented label:focus-visible {
+  outline: 3px solid rgba(240,155,48,0.4);
+  outline-offset: 2px;
+  }
+  .segmented input[type="radio"]:checked + label {
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+  
+  
+  .drawer-meta {
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  margin-bottom:14px;
+  }
+  .drawer-price {
+  font-weight: 800;
+  font-size: 1.05rem;
+  color:#222;
+  }
+  .drawer-hint {
+  font-size: .9rem;
+  color:#6b6b6b;
+  }
+  
+  
+  /* Keyboard escape hint (visually subtle) */
+  .kbd-hint {
+  font-size: 0.85rem;
+  color: #8a8a8a;
+  }
+
+  @media (max-width: 768px) {
+    #drawer_cart {
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+    }
+  }
+  
+
+  :root{
+    --accent: var(--bg-start-color);
+    --accent-bg:#ffe9f5;
+    --border:#e6e6e6;
+    --text:#222;
+    --muted:#6b6b6b;
+  }
+  
+  .choice-cards {
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:12px;
+    margin:14px 0;
+  }
+  
+  .choice-card {
+    position:relative;
+    border:1.5px solid var(--border);
+    border-radius:16px;
+    padding:12px 14px;
+    background:#fff;
+    cursor:pointer;
+    transition:border-color .16s ease, box-shadow .16s ease, background-color .16s ease;
+    display:flex; gap:10px; align-items:flex-start;
+  }
+  .choice-card:hover{ box-shadow:0 2px 10px rgba(0,0,0,.06); }
+  .choice-card:focus-visible{ outline:3px solid rgba(255,46,166,.35); outline-offset:2px; }
+  .choice-card input[type="radio"]{ position:absolute; inset:0; opacity:0; cursor:pointer; margin:0; }
+  
+  .choice-card .icon{ line-height:0; margin-top:2px; }
+  .choice-card .label{ font-weight:700; color:var(--text); }
+  .choice-card .price{ margin-top:6px; font-weight:800; color:var(--text); }
+  .choice-card small{ color:var(--muted); font-weight:600; }
+  
+  .choice-card.active{
+    border-color:var(--accent);
+    background:var(--accent-bg);
+    box-shadow:0 2px 12px rgba(255,46,166,.15);
+  }
+  .choice-card.active .label{ color:#c2177a; }
+  
+  @media (max-width: 480px){
+    .choice-cards{ grid-template-columns: 1fr; }
+  }
+  
+  /* === БАЗОВІ ЗМІННІ (узгодження кольорів між кнопкою і radiogroup) === */
+:root{
+  --brand: var(--title-color);           /* головний акцент (такий самий як у кнопки) */
+  --brand-weak: #faecda;;       /* світлий фон активної картки */
+  --border:#e6e6e6;
+  --text:#222;
+  --muted:#6b6b6b;
+}
+
+/* === КНОПКА Купити — на всю ширину === */
+.order-btn{
+  display:block;
+  width:100%;
+  padding:14px 18px;
+  font-weight:800;
+  border:none;
+  border-radius:16px;
+  background: var(--brand);
+  color:#fff;
+  cursor:pointer;
+  transition: transform .15s ease, box-shadow .15s ease, opacity .15s ease;
+}
+.order-btn:hover{ transform: translateY(-1px); box-shadow:0 6px 18px rgba(0,0,0,.15); }
+.order-btn:active{ transform: translateY(0); }
+.order-btn:disabled{ opacity:.6; cursor:not-allowed; }
+
+/* === Radiogroup картками (поруч навіть на мобільному) === */
+.choice-cards{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap:12px;
+  margin: 14px 0 14px 0;
+}
+.choice-card{
+  position:relative;
+  border:1.5px solid var(--border);
+  border-radius:16px;
+  padding:12px 14px;
+  background:#fff;
+  cursor:pointer;
+  transition:border-color .16s ease, box-shadow .16s ease, background-color .16s ease;
+  display:flex; gap:10px; align-items:flex-start;
+  color: var(--muted);
+}
+.choice-card:hover{ box-shadow:0 2px 10px rgba(0,0,0,.06); }
+.choice-card:focus-visible{ outline:3px solid color-mix(in srgb, var(--brand) 35%, transparent); outline-offset:2px; }
+.choice-card input[type="radio"]{ position:absolute; inset:0; opacity:0; cursor:pointer; margin:0; }
+
+.choice-card .icon{ line-height:0; margin-top:2px; color: var(--brand); }
+.choice-card .label{ font-weight:700; color:#444; }
+.choice-card .price{ margin-top:6px; font-weight:800; color:#111; }
+
+.choice-card.active{
+  border-color: var(--brand);
+  background: var(--brand-weak);
+  color:var(--title-color);
+  box-shadow:0 2px 12px color-mix(in srgb, var(--brand) 25%, transparent);
+}
+.choice-card.active .label{ color:var(--title-color); }
+
+/* === Drawer базові стилі (припускаємо, що у вас вони вже були; лишимо мінімум) === */
+.drawer-overlay{ position:fixed; inset:0; background:rgba(0,0,0,.35); display:none; }
+.drawer-cart{ position:fixed; top:0; right:-420px; width:420px; max-width:100%; height:100%; background:#fff; box-shadow:-8px 0 24px rgba(0,0,0,.2); transition:right .25s ease; }
+.drawer-cart.open{ right:0; }
+.drawer-header{ display:flex; align-items:center; justify-content:space-between; padding:14px 16px; border-bottom:1px solid #eee; }
+.close-drawer-btn{ background:none; border:none; font-size:28px; line-height:1; cursor:pointer; }
+.drawer-content{ padding:16px; }
+.drawer-product-details h4{ margin:8px 0 4px; }
+
+/* Loader */
+#global_loader{ position:fixed; inset:0; display:none; align-items:center; justify-content:center; background:rgba(255,255,255,.6); z-index:999; }
+.loader{ width:42px; height:42px; border:4px solid #eee; border-top-color: var(--brand); border-radius:50%; animation:spin 0.8s linear infinite; }
+@keyframes spin{ to{ transform: rotate(360deg);} }
+
+/* Контейнер продукту (мінімум) */
+.preorder .product{ max-width:460px; margin:0 auto; text-align:left; }

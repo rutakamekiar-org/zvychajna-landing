@@ -135,18 +135,53 @@
         </div>
         <p class="age_restriction">Вікове обмеження: 16+</p>
       </section>
+
+      <!-- === ЗАМОВЛЕННЯ === -->
       <section id="preorder" class="preorder">
-        <div class="product">
-          <img src="images/book.jpg" alt="Book" width="100" height="150" />
-          <p>Паперова версія - 350 грн</p>
-          <button id="preorder_button" class="order-btn">Замовити</button>
-        </div>
-        <div class="product">
-          <img src="images/book.jpg" alt="Book" width="100" height="150" />
-          <p>Електронна версія - 200 грн</p>
-          <button id="invoice_button" class="order-btn">Замовити</button>
+        <div class="product" aria-labelledby="order_title">
+          <img src="images/book.jpg" alt="Обкладинка книги" width="120" height="180" loading="lazy" />
+          <h3 id="order_title" style="margin:12px 0 6px 0;">Замовити «Звичайна»</h3>
+
+          <!-- Вибір типу на головній сторінці (картковий radiogroup) -->
+          <div class="choice-cards" role="radiogroup" aria-label="Тип книги">
+            <!-- Паперова -->
+            <label class="choice-card active" for="main-type-paper">
+              <span class="icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <path d="M4 6.5C4 5.12 5.12 4 6.5 4H18a2 2 0 0 1 2 2v10.4a2.6 2.6 0 0 1-2.6 2.6H7.2A3.2 3.2 0 0 1 4 15.8V6.5Z" stroke="currentColor" stroke-width="1.6"/>
+                  <path d="M6.5 4A2.5 2.5 0 0 0 4 6.5V15c.7-.5 1.74-.8 3.2-.8H19.5" stroke="currentColor" stroke-width="1.6"/>
+                </svg>
+              </span>
+              <div>
+                <div class="label">Паперова</div>
+                <div class="price">350 грн</div>
+              </div>
+              <input type="radio" id="main-type-paper" name="main_purchase_type" value="paper" checked>
+            </label>
+
+            <!-- Електронна -->
+            <label class="choice-card" for="main-type-digital">
+              <span class="icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+                  <rect x="7" y="3" width="10" height="18" rx="2" stroke="#6b6b6b" stroke-width="1.6"/>
+                  <circle cx="12" cy="17.5" r="1" fill="#6b6b6b"/>
+                </svg>
+              </span>
+              <div>
+                <div class="label">Електронна</div>
+                <div class="price">200 грн</div>
+              </div>
+              <input type="radio" id="main-type-digital" name="main_purchase_type" value="digital">
+            </label>
+          </div>
+
+          <!-- ОДНА велика кнопка Купити -->
+          <button id="buy_button" class="order-btn" aria-haspopup="dialog" aria-controls="drawer_cart">
+            Купити за 350 грн
+          </button>
         </div>
       </section>
+
       <section id="excerpt" class="excerpt">
         <div class="excerpt_content">
           <h2>Розділ 8</h2>
